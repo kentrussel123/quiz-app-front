@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function NavBar() {
     return (
-        <div className='shadow-lg'>
+        <div className='shadow-lg absolute top-0 right-0 bg-slate-50 rounded-2xl'>
             <nav className="flex items-center justify-between flex-wrap p-6">
                 <Link to="/">
                     <div className="flex items-center flex-shrink-0 mr-6">

@@ -33,6 +33,19 @@ function SignupPage(){
                             <input type="password" placeholder="Confirm Password" className="border border-gray-400 py-1 px-2 w-full"/>
                         </div>
                         <div className="mt-5">
+                            <select className="border border-gray-400 py-1 px-2 w-full">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div className="mt-5">
+                            <select className="border border-gray-400 py-1 px-2 w-full">
+                                <option value="student">Student</option>
+                                <option value="professor">Professor</option>
+                            </select>
+                        </div>
+                        <div className="mt-5">
                             <input type="checkbox" className="border border-gray-400"/>
                             <span>
                             &nbsp; I accept the <a href="#" className="text-purple-500 font-semibold">Terms of Use</a> &  <a href="#" className="text-purple-500 font-semibold">Privacy Policy</a> 
