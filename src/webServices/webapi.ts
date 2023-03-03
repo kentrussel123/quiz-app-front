@@ -1,10 +1,11 @@
 
 
+
 class ApiService {
-    baseUrl = `${process.env.API_BASE_URL}`
+    baseUrl = `http://localhost:3000`
     resource
 
-    constructor(resource) {
+    constructor(resource:any) {
         if (!resource) throw new Error("Resource is not provided");
         this.resource = resource;
     }
@@ -17,14 +18,14 @@ class ApiService {
         return `${this.baseUrl}/${res}/${id}`;
     }
 
-    setHeaders(options) {
+    setHeaders(options:any) {
         let headers = {
             'Content-Type' : 'application/json'
         };
         options["headers"] = headers;
     }
 
-    async handleResponse(response) {
+    async handleResponse(response:any) {
         if(response.status == 200) {
             return await response.json();
         } else {
@@ -32,7 +33,7 @@ class ApiService {
         }
     }
 
-    async handleErrorJson(response) {
+    async handleErrorJson(response:any) {
         let json = await response.json()
         let error = new Error(json.title)
         error.message = json.message;
@@ -48,7 +49,7 @@ class ApiService {
         return await this.handleResponse(response);
     }
 
-    async getManyCall(url,data={}){
+    async getManyCall(url:any,data={}){
         let options = {
             method: "GET",
             headers:{'Content-Type': 'application/json'},
@@ -63,18 +64,18 @@ class ApiService {
         return this.getManyCall(this.getUrl(),data)
     }
 
-    async get(id) {
+    async get(id:any) {
         const response = await fetch(this.getUrl(id));
         return await this.handleResponse(response);
     }
 
-    async getCall(url,id){
+    async getCall(url:any,id:any){
         const response = await fetch(this.getCallUrl(url,id));
         return await this.handleResponse(response);
     }
     
 
-    async postCall(url,data = {}) {
+    async postCall(url:any,data = {}) {
         let options = {
             method: "POST",
             body: JSON.stringify(data),
@@ -89,7 +90,7 @@ class ApiService {
         return this.postCall(this.getUrl(),data)
     }
 
-    async patchCall(url,data = {}) {
+    async patchCall(url:any,data = {}) {
         let options = {
             method: "PATCH",
             headers:{'Content-Type': 'application/json'},
@@ -104,7 +105,7 @@ class ApiService {
         return this.patchCall(this.getUrl(),data)
     }
 
-    async delete(id) {
+    async delete(id:any) {
         if (!id) throw Error("Id is not provided");
         let options = {
             method: "DELETE"

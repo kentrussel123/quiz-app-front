@@ -16,7 +16,7 @@ function NavBar() {
                         <Link to="/signup-page">SignUp</Link>
                     </div>
                     <div className="text-xl block mt-4 lg:inline-block lg:mt-0 text-gray-900 hover:text-gray-600 mr-4">
-                        <a href="/signup-page">Login</a>
+                        <Link to={"/login-page"}>Login</Link>
                     </div>
                 </div>
             </nav>
